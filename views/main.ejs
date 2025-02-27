@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Task Manager</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+
+    <!-- Icons -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        /* background-color: #f8f9fa; */
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .task-card {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        width: 45%; /* Adjusts the width of the task cards */
+      }
+
+      .task-card:hover {
+        transform: scale(1.02);
+      }
+
+      .btn-delete {
+        background: #dc3545;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .btn-delete:hover {
+        background: #c82333;
+      }
+
+      .task-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between; /* This aligns items evenly across the row */
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="d-flex flex-column align-items-center mt-5">
+      <h1 class="mb-4 head">Task Manager</h1>
+
+      <div class="container myinputbox">
+        <form action="/create" method="post">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control in"
+              name="title"
+              id="formId1"
+              placeholder="Task Title"
+              required
+            />
+            <label for="formId1">Title</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control in"
+              name="details"
+              id="formId2"
+              placeholder="Task Details"
+              required
+            />
+            <label for="formId2">Task Details</label>
+          </div>
+
+          <button type="submit" class="btn add btn-success w-100">
+            <i class="fas fa-plus"></i> Add Task
+          </button>
+        </form>
+      </div>
+
+      <div class="container mt-4 myprintbox">
+        <div class="task-container">
+          <% if ( task.length>0) { %> <% task.forEach(function(t){ %>
+
+          <div class="task-card">
+            <div>
+              <h5 class="text-dark"><%= t.title.replace('.txt','') %></h5>
+              <p class="text-muted"><%= t.content %></p>
+            </div>
+            <button
+              class="btn-delete"
+              onclick="deleteTask(`<%= encodeURIComponent(t.title) %>.txt`)"
+            >
+              <!-- <i class="fas fa-trash"></i> -->
+              remove
+            </button>
+          </div>
+          <% }) %> <%} else { %>
+          <p class="text-muted">No tasks available.</p>
+          <% } %>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function deleteTask(taskName) {
+        const filename = taskName.replace(".txt", "");
+        fetch(`/delete/${filename}`, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              location.reload();
+            } else {
+              alert("Failed to delete task.");
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+    </script>
+  </body>
+</html>

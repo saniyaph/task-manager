@@ -1,0 +1,59 @@
+.line-through {
+    text-decoration: line-through;
+  }
+
+body{
+  background-color: #fdffb6;
+}
+
+.card{
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+h1{
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  outline: #ffd6a5 ridge 3px;
+  background-color: #e0afa0 ;
+}
+
+.add{
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    outline: #ffd6a5 ridge 3px;
+    background-color: #e0afa0 ;
+}
+
+.in:hover{
+  outline: #ffd6a5 ridge 4px;
+}
+
+.myinputbox{
+  
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    outline: #ffd6a5 ridge 3px;
+    background-color: rgb(228, 174, 73) ;
+  
+}
+
+.myprintbox{
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  outline: #ffd6a5 ridge 3px;
+  background-color: rgb(250, 0, 83) ;
+}
+
+.add:hover{
+  background-color:#e0afa0;
+}
