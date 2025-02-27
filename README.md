@@ -27,10 +27,11 @@ To run this project locally, follow these steps:
 ```markdown
 ## Usage
 
-1. Open the `index.html` file in a web browser.
-2. Add a new task using the "Add Task" button.
-3. View all your tasks listed below.
-4. Click on the trash icon next to a task to delete it.
+1. Start the server: node index.js
+2. Open your web browser and go to http://localhost:3000/ to view the Task Manager application.
+3. Add a new task using the "Add Task" button.
+4. View all your tasks listed below.
+5. Click on the trash icon next to a task to delete it.
 
 
 ## Technologies Used
