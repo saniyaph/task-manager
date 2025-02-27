@@ -1,9 +1,15 @@
 # Task Manager
 
 ## Description
-Task Manager is a web-based application to help users organize and manage their daily tasks. Users can add tasks, view them, and delete tasks when completed. It's built using HTML, CSS, JavaScript, and Bootstrap for a responsive design.
+Task Manager is a simple web-based application built with **Express.js** and the **EJS** template engine. The app allows users to organize their daily tasks by adding, viewing, and deleting them. Instead of using a database, the application stores the task data as individual files within a folder on the server, making it lightweight and easy to manage.
 
+### Key Features:
+- **Express.js** serves as the backend framework to handle HTTP requests and responses.
+- **EJS** is used as the template engine to dynamically render the task data on the frontend.
+- Task data is stored locally in files (rather than a database), making it easy to persist the tasks across page reloads.
+- Responsive design using **Bootstrap** ensures the app is accessible on both desktop and mobile devices.
 
+With a simple, yet effective design, Task Manager allows users to focus on managing their tasks without needing a complex database setup.
 ## Table of Contents
 - [Installation](#installation)
 To run this project locally, follow these steps:
