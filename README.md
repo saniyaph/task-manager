@@ -10,7 +10,7 @@ Task Manager is a simple web-based application built with **Express.js** and the
 - Responsive design using **Bootstrap** ensures the app is accessible on both desktop and mobile devices.
 
 With a simple, yet effective design, Task Manager allows users to focus on managing their tasks without needing a complex database setup.
-## Table of Contents
+
 - [Installation](#installation)
 To run this project locally, follow these steps:
 1. Clone the repository:
